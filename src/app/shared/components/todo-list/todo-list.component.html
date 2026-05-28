@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Todo List</mat-card-title>
+    <mat-card-content>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between" *ngFor="let todo of getTodosArr; trackBy: trackByTodoID">
+                <mat-checkbox [checked]="todo.isCompleted">
+                    <strong>{{todo.todoItem}}</strong>
+                </mat-checkbox>
+                <div>
+                    <button 
+                    (click)="onEdit(todo)"
+                    class="mr-2" mat-mini-fab color="accent">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button
+                    (click)="onRemove(todo.todoID)"
+                     mat-mini-fab color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </mat-card-content>
+</mat-card>
