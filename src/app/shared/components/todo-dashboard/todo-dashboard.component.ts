@@ -39,8 +39,8 @@ export class TodoDashboardComponent implements OnInit {
       next: resp =>{
         if(resp){
           let getIndex = this.todosArr.findIndex(t => t.todoID === removeID)
-          this.todosArr.splice(getIndex,1);
-          this._snackbar.openSnackBarService(resp.msg);
+          let removedITem = this.todosArr.splice(getIndex,1);
+          this._snackbar.openSnackBarService(`The TodoItem ${removedITem[0].todoItem} is removed successfully!!!`);
         }
       },
       error: err =>{
